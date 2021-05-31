@@ -8,7 +8,6 @@ import java.util.Scanner;
 import model.entities.Contract;
 import model.entities.Installment;
 import model.services.ContractService;
-import model.services.OnlinePaymentService;
 import model.services.PaypalService;
 
 public class Program {
@@ -18,9 +17,6 @@ public class Program {
 		//last edition: 27/05/2021 10:18
 		Scanner in = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		
-		OnlinePaymentService ps = new PaypalService();
-		System.out.println(ps.interest(200.00, 3));
 		
 		try {
 			System.out.println("Enter contract data");
