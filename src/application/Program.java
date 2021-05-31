@@ -1,8 +1,13 @@
 package application;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
+import model.entities.Contract;
+import model.entities.Installment;
+import model.services.ContractService;
 import model.services.OnlinePaymentService;
 import model.services.PaypalService;
 
@@ -16,7 +21,7 @@ public class Program {
 		
 		OnlinePaymentService ps = new PaypalService();
 		System.out.println(ps.interest(200.00, 3));
-		/*
+		
 		try {
 			System.out.println("Enter contract data");
 			System.out.print("Number: ");
@@ -25,12 +30,24 @@ public class Program {
 			Date date = sdf.parse(in.next());
 			System.out.print("Contract value: ");
 			Double contractValue = in.nextDouble();
+			
+			Contract contract = new Contract(number, date, contractValue);
+			
 			System.out.print("Enter number of installments: "); //parcelas
 			Integer installments = in.nextInt();
+			
+			ContractService cs = new ContractService(new PaypalService());
+			
+			cs.processContract(contract, installments);
+			
+			System.out.println("Installments:");
+			for (Installment it : contract.getInstList()) {
+				System.out.println(it);
+			}
 		}
 		catch (ParseException e) {
 			System.out.println("ERROR:" + e.getMessage());
-		}*/
+		}
 		in.close();
 	}
 }
