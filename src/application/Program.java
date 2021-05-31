@@ -1,9 +1,10 @@
 package application;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
+
+import model.services.OnlinePaymentService;
+import model.services.PaypalService;
 
 public class Program {
 
@@ -13,6 +14,9 @@ public class Program {
 		Scanner in = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
+		OnlinePaymentService ps = new PaypalService();
+		System.out.println(ps.interest(200.00, 3));
+		/*
 		try {
 			System.out.println("Enter contract data");
 			System.out.print("Number: ");
@@ -26,7 +30,7 @@ public class Program {
 		}
 		catch (ParseException e) {
 			System.out.println("ERROR:" + e.getMessage());
-		}
+		}*/
 		in.close();
 	}
 }

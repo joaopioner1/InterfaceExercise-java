@@ -4,14 +4,13 @@ public class PaypalService implements OnlinePaymentService {
 
 	@Override
 	public Double paymentFee(Double amount) {
-		return null;
+		return amount * 0.02;
 	}
 
 	@Override
 	public Double interest(Double amount, Integer months) {
-		return null;
+		return amount * months * 0.01;
 	}
 
 }
-	//primeiro calcula valor 1% de acordo com o valor de cada parcela e depois soma mais 2% (juros simples) 
-	//Cada mes tem seu valor proprio
+	
